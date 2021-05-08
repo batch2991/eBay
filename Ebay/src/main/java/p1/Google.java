@@ -9,6 +9,7 @@ public class Google
   }
   public void validate()
   {
-	  
+	System.out.println("validate tile");  
   }
+  
 }
