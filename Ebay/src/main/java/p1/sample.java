@@ -13,5 +13,8 @@ public class sample
   public void f3() {
 	  
   }
+  public void f4() {
+	  
+  }
 }
 
