@@ -10,5 +10,8 @@ public class sample
   {
 	  System.out.println("f2 method");
   }
+  public void f3() {
+	  
+  }
 }
 
