@@ -9,5 +9,8 @@ public class sample
   public void f2() {
 	  
   }
+  public void f3() {
+	  
+  }
 }
 
