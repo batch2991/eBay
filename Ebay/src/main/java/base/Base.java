@@ -20,60 +20,61 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
-public class Base
+public class Base 
 {
-    public static WebDriver driver;
-    public static Properties prop;
-    
-    public static ExtentHtmlReporter exthtml;
-    public static ExtentTest exttest;
-    public static ExtentReports report;
-	
-    @BeforeSuite
-    public void setUp()
-    {
-    	prop=new Properties();
-    	try{prop.load(new FileInputStream("src/main/java/config/config.properties"));}catch(Exception e) {}
-    	if(prop.getProperty("browsername").matches("firefox"))
-    	{
-    		driver=new FirefoxDriver();
-    	}
-    	if(prop.getProperty("browsername").matches("chrome"))
-    	{
-    		driver=new ChromeDriver();
-    	}
-    	driver.manage().window().maximize();
-    	driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
-    	driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
-    	
-    	   exthtml = new ExtentHtmlReporter(prop.getProperty("reportlocation"));
-		   report = new ExtentReports();
-	 	   report.attachReporter(exthtml);
-	 	   report.setSystemInfo("Host Name", "TestSystem");  //name of thesystem
-	 	   report.setSystemInfo("Environment", "Test Env");
-	 	   report.setSystemInfo("User Name", "venkatgn");
+   public static WebDriver driver;
+   public static Properties prop;
+   
+   public static ExtentHtmlReporter exthtml;
+   public static ExtentReports report;
+   public static ExtentTest testlog;
+   
+   @BeforeSuite
+   public void setUp()
+   {
+	   prop=new Properties();
+	   
+	   try {prop.load(new FileInputStream("src/main/java/config/config.properties"));} 
+	   catch (Exception e) {e.printStackTrace();}
+	   
+	   if(prop.getProperty("browserName").matches("firefox"))
+	   {
+		   System.setProperty("webdriver.gecko.driver","D:\\sel_prac\\myebaylocalrep\\Ebay\\geckodriver.exe");
+		   driver=new FirefoxDriver();		   
+	   }
+	   if(prop.getProperty("browserName").matches("chrome"))
+	   {
+		   System.setProperty("webdriver.chrome.driver", "D:\\sel_prac\\myebaylocalrep\\Ebay\\chromedriver.exe");
+		   driver=new ChromeDriver();		   
+	   }
+	   driver.manage().window().maximize();
+	   driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
+	   
+	    exthtml = new ExtentHtmlReporter(prop.getProperty("reportlocation"));
+		report = new ExtentReports();
+	 	report.attachReporter(exthtml);
+	 	report.setSystemInfo("Host Name", "TestSystem");  //name of thesystem
+	 	report.setSystemInfo("Environment", "Test Env");
+	 	report.setSystemInfo("User Name", "venkatg");
 	 	   
-	 	   exthtml.config().setDocumentTitle("EBay");
-	 	   exthtml.config().setReportName("EBay Functional Testing");
-	 	   exthtml.config().setTestViewChartLocation(ChartLocation.TOP);
-	 	   exthtml.config().setTheme(Theme.STANDARD);
-    }
-    
-    public void takescreenshot(String imagename)
-    {
-    	File f=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		try{FileUtils.copyFile(f,new File(prop.getProperty("screenshots")+imagename));
-		    exttest.addScreenCaptureFromPath(prop.getProperty("screenshots")+imagename);}catch(Exception e) {}
-    }
-    
-    @AfterSuite
-    public void teadDown()
-    {
-    	driver.close();
-    	report.flush();
-		try {
-		Runtime.getRuntime().exec("taskkill /f /im chromedriver.exe");
-		Runtime.getRuntime().exec("taskkill /f /im geckodriver.exe");}catch(Exception e) {}
-    }
-    
+	 	exthtml.config().setDocumentTitle("EBay");
+	 	exthtml.config().setReportName("Ebay Functional Testing");
+	 	exthtml.config().setTestViewChartLocation(ChartLocation.TOP);
+	 	exthtml.config().setTheme(Theme.STANDARD);
+   }
+   public void takescreenshot(String imagename)
+   {
+	   try {
+	    File f=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(f,new File(prop.getProperty("images")+imagename));
+		testlog.addScreenCaptureFromPath(prop.getProperty("images")+imagename);
+	   }catch(Exception e) {}
+   }
+   
+   @AfterSuite
+   public void tearDown()
+   {
+	   report.flush(); //save the report
+	   driver.close();
+   }
 }

@@ -1,9 +1,9 @@
-<suite name="EBayTesting">
-  <test name="FunctionalTesting">
-    <classes> 
-        <class name="base.Base"/>  	
-    	<class name="testSuites.SanityTesting"/>
-    	<class name="testSuites.ReTest"/>
-    </classes>
-  </test>
+<suite name="ebay">
+<test name="ebay testing">
+ <classes>
+   <class name="base.Base"/>
+   <class name="testSuite.SmokeTest"/>
+   <class name="testSuite.Regression"/>
+ </classes>
+</test>
 </suite>
