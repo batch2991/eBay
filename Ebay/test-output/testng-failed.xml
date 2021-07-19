@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [EBayTesting]">
+  <test thread-count="5" name="FunctionalTesting(failed)">
+    <classes>
+      <class name="testSuites.ReTest">
+        <methods>
+          <include name="retesting"/>
+        </methods>
+      </class> <!-- testSuites.ReTest -->
+    </classes>
+  </test> <!-- FunctionalTesting(failed) -->
+</suite> <!-- Failed suite [EBayTesting] -->

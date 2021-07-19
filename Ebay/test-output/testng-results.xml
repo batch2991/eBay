@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="ebay" duration-ms="50082" started-at="2021-07-14T13:25:23Z" finished-at="2021-07-14T13:26:13Z">
+    <groups>
+    </groups>
+    <test name="ebay testing" duration-ms="50082" started-at="2021-07-14T13:25:23Z" finished-at="2021-07-14T13:26:13Z">
+      <class name="testSuite.Regression">
+        <test-method status="PASS" signature="regressiontesting()[pri:0, instance:testSuite.Regression@53b32d7]" name="regressiontesting" duration-ms="42014" started-at="2021-07-14T13:25:31Z" finished-at="2021-07-14T13:26:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- regressiontesting -->
+      </class> <!-- testSuite.Regression -->
+      <class name="testSuite.SmokeTest">
+        <test-method status="PASS" signature="smoketesting()[pri:0, instance:testSuite.SmokeTest@343f4d3d]" name="smoketesting" duration-ms="8040" started-at="2021-07-14T13:25:23Z" finished-at="2021-07-14T13:25:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- smoketesting -->
+      </class> <!-- testSuite.SmokeTest -->
+      <class name="base.Base">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:base.Base@57baeedf]" name="setUp" is-config="true" duration-ms="5803" started-at="2021-07-14T13:25:17Z" finished-at="2021-07-14T13:25:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:base.Base@57baeedf]" name="tearDown" is-config="true" duration-ms="1821" started-at="2021-07-14T13:26:13Z" finished-at="2021-07-14T13:26:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- base.Base -->
+    </test> <!-- ebay testing -->
+  </suite> <!-- ebay -->
+</testng-results>
