@@ -39,12 +39,12 @@ public class Base
 	   
 	   if(prop.getProperty("browserName").matches("firefox"))
 	   {
-		   System.setProperty("webdriver.gecko.driver","D:\\sel_prac\\myebaylocalrep\\Ebay\\geckodriver.exe");
+		  // System.setProperty("webdriver.gecko.driver","D:\\sel_prac\\myebaylocalrep\\Ebay\\geckodriver.exe");
 		   driver=new FirefoxDriver();		   
 	   }
 	   if(prop.getProperty("browserName").matches("chrome"))
 	   {
-		   System.setProperty("webdriver.chrome.driver", "D:\\sel_prac\\myebaylocalrep\\Ebay\\chromedriver.exe");
+		  // System.setProperty("webdriver.chrome.driver", "D:\\sel_prac\\myebaylocalrep\\Ebay\\chromedriver.exe");
 		   driver=new ChromeDriver();		   
 	   }
 	   driver.manage().window().maximize();
